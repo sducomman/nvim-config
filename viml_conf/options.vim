@@ -40,7 +40,7 @@ set backup  " create backup for files
 set backupcopy=yes  " copy the original file to backupdir and overwrite it
 
 " General tab settings
-set tabstop=2       " number of visual spaces per TAB
+set tabstop=4       " number of visual spaces per TAB
 set softtabstop=2   " number of spaces in tab when editing
 set shiftwidth=2    " number of spaces to use for autoindent
 set expandtab       " expand tab to spaces so that tabs are spaces
@@ -69,7 +69,7 @@ set wildmode=list:longest
 set scrolloff=3
 
 " Use mouse to select and resize windows, etc.
-set mouse=nic  " Enable mouse in several mode
+set mouse=a  " Enable mouse in several mode
 set mousemodel=popup  " Set the behaviour of mouse
 set mousescroll=ver:1,hor:0
 
@@ -125,7 +125,7 @@ set winblend=0  " pseudo transparency for floating window
 " Insert mode key word completion setting
 set complete+=kspell complete-=w complete-=b complete-=u complete-=t
 
-set spelllang=en,cjk  " Spell languages
+set spelllang=en,fr  " Spell languages
 set spellsuggest+=9  " show 9 spell suggestions at most
 
 " Align indent to next multiple value of shiftwidth. For its meaning,
