@@ -98,7 +98,7 @@ nvim_tree.setup {
       diagnostics = false,
       git = false,
       profile = false,
-    },
+    }
   },
 }
 
