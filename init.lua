@@ -26,6 +26,12 @@ if  result ~= 0 then
   vim.api.nvim_err_writeln(msg)
 end
 
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+-- empty setup using defaults
+require("nvim-tree").setup()
+
 local core_conf_files = {
   "globals.lua", -- some global settings
   "options.vim", -- setting options in nvim

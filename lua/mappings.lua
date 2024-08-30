@@ -229,3 +229,8 @@ keymap.set("n", "<leader>cb", function()
     cnt = cnt + 1
   end))
 end)
+
+keymap.set("n", "<Leader>nn", require("nvim-tree.api").tree.toggle, {
+  silent = true,
+  desc = "toggle nvim-tree",
+})
