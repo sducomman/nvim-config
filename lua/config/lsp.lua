@@ -43,7 +43,7 @@ local custom_attach = function(client, bufnr)
   map("n", "<space>wa", vim.lsp.buf.add_workspace_folder, { desc = "add workspace folder" })
   map("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, { desc = "remove workspace folder" })
   map("n", "<space>wl", function()
-    inspect(vim.lsp.buf.list_workspace_folders())
+    vim.print(vim.lsp.buf.list_workspace_folders())
   end, { desc = "list workspace folder" })
 
   -- Set some key bindings conditional on server capabilities
@@ -110,6 +110,11 @@ local custom_attach = function(client, bufnr)
 end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- required by nvim-ufo
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+}
 
 local lspconfig = require("lspconfig")
 
@@ -224,21 +229,6 @@ if utils.executable("lua-language-server") then
         runtime = {
           -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
           version = "LuaJIT",
-        },
-        diagnostics = {
-          -- Get the language server to recognize the `vim` global
-          globals = { "vim" },
-        },
-        workspace = {
-          -- Make the server aware of Neovim runtime files,
-          -- see also https://github.com/LuaLS/lua-language-server/wiki/Libraries#link-to-workspace .
-          -- Lua-dev.nvim also has similar settings for lua ls, https://github.com/folke/neodev.nvim/blob/main/lua/neodev/luals.lua .
-          library = {
-            vim.env.VIMRUNTIME,
-            fn.stdpath("config"),
-          },
-          maxPreload = 2000,
-          preloadFileSize = 50000,
         },
       },
     },

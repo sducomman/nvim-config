@@ -11,22 +11,15 @@
 -- StackOverflow: https://stackoverflow.com/users/6064933/jdhao
 vim.loader.enable()
 
-local utils = require("utils")
+local version = vim.version
 
-<<<<<<< HEAD
 -- check if we have the latest stable version of nvim
 local expected_ver = "0.11.0"
 local ev = version.parse(expected_ver)
 local actual_ver = version()
-=======
-local expected_version = "0.10.2"
-utils.is_compatible_version(expected_version)
->>>>>>> d715ce8f31d4251f2695cddf30df5b2f4908d8bd
 
-local config_dir = vim.fn.stdpath("config")
----@cast config_dir string
+local result = version.cmp(ev, {actual_ver.major, actual_ver.minor, actual_ver.patch})
 
-<<<<<<< HEAD
 if  result ~= 0 then
   local _ver = string.format("%s.%s.%s", actual_ver.major, actual_ver.minor, actual_ver.patch)
   local msg = string.format("Expect nvim %s, but got %s instead. Use at your own risk!", expected_ver, _ver)
@@ -61,17 +54,3 @@ for _, file_name in ipairs(core_conf_files) do
     require(module_name)
   end
 end
-=======
--- some global settings
-require("globals")
--- setting options in nvim
-vim.cmd("source " .. vim.fs.joinpath(config_dir, "viml_conf/options.vim"))
--- various autocommands
-require("custom-autocmd")
--- all the user-defined mappings
-require("mappings")
--- all the plugins installed and their configurations
-vim.cmd("source ".. vim.fs.joinpath(config_dir, "viml_conf/plugins.vim"))
--- colorscheme settings
-require("colorschemes")
->>>>>>> d715ce8f31d4251f2695cddf30df5b2f4908d8bd

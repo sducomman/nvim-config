@@ -13,7 +13,7 @@
       <img alt="Latest release" src="https://img.shields.io/github/v/release/jdhao/nvim-config" />
     </a>
     <a href="https://github.com/neovim/neovim/releases/tag/stable">
-      <img src="https://img.shields.io/badge/Neovim-0.9.5-blueviolet.svg?style=flat-square&logo=Neovim&logoColor=green" alt="Neovim minimum version"/>
+      <img src="https://img.shields.io/badge/Neovim-0.10.2-blueviolet.svg?style=flat-square&logo=Neovim&logoColor=green" alt="Neovim minimum version"/>
     </a>
     <a href="https://github.com/jdhao/nvim-config/search?l=vim-script">
       <img src="https://img.shields.io/github/languages/top/jdhao/nvim-config" alt="Top languages"/>
@@ -21,8 +21,8 @@
     <a href="https://github.com/jdhao/nvim-config/graphs/commit-activity">
       <img src="https://img.shields.io/github/commit-activity/m/jdhao/nvim-config?style=flat-square" />
     </a>
-    <a href="https://github.com/jdhao/nvim-config/releases/tag/v0.9.5">
-      <img src="https://img.shields.io/github/commits-since/jdhao/nvim-config/v0.9.5?style=flat-square" />
+    <a href="https://github.com/jdhao/nvim-config/releases/tag/v0.10.1">
+      <img src="https://img.shields.io/github/commits-since/jdhao/nvim-config/v0.10.1?style=flat-square" />
     </a>
     <a href="https://github.com/jdhao/nvim-config/graphs/contributors">
       <img src="https://img.shields.io/github/contributors/jdhao/nvim-config?style=flat-square" />
@@ -84,6 +84,7 @@ and how to set up on different platforms (Linux, macOS, and Windows).
 + Tags navigation via [vista](https://github.com/liuchengxu/vista.vim).
 + Code formatting via [Neoformat](https://github.com/sbdchd/neoformat).
 + Undo management via [vim-mundo](https://github.com/simnalamburt/vim-mundo)
++ Code folding with [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo) and [statuscol.nvim](https://github.com/luukvbaal/statuscol.nvim)
 + ......
 
 # UI Demo
@@ -140,6 +141,12 @@ Go to a string starting with `se`
 <img src="https://user-images.githubusercontent.com/16662357/128589873-aadb8264-1098-4834-9876-fa66a309be05.gif" width="800">
 </p>
 
+## code folding with nvim-ufo and statuscol.nvim
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/a01a56b2-7c91-43de-b305-f2fbaa81dcec" width="800">
+</p>
+
 # Shortcuts
 
 Some of the shortcuts I use frequently are listed here. In the following shortcuts, `<leader>` represents ASCII character `,`.
@@ -165,12 +172,14 @@ Some of the shortcuts I use frequently are listed here. In the following shortcu
 | `<space>t`        | Normal        | Linux/macOS/Win | Toggle tag window (show project tags in the right window)                |
 | `<leader>gs`      | Normal        | Linux/macOS/Win | Show Git status result                                                   |
 | `<leader>gw`      | Normal        | Linux/macOS/Win | Run Git add for current file                                             |
-| `<leader>gd`      | Normal        | Linux/macOS/Win | Run git diff for current file                                            |
 | `<leader>gc`      | Normal        | Linux/macOS/Win | Run git commit                                                           |
 | `<leader>gpl`     | Normal        | Linux/macOS/Win | Run git pull                                                             |
 | `<leader>gpu`     | Normal        | Linux/macOS/Win | Run git push                                                             |
-| `<leader>gl`      | Normal/Visual | Linux/macOS/Win | Get perm link for current/visually-select lines
-| `<leader>gb`      | Normal        | macOS           | Browse current git repo in browser
+| `<leader>gbd`     | Normal        | Linux/macOS/Win | Delete a branch                                                          |
+| `<leader>gbn`     | Normal        | Linux/macOS/Win | Create a new branch                                                      |
+| `<leader>gl`      | Normal/Visual | Linux/macOS/Win | Get perm link for current/visually-select lines                          |
+| `<leader>gbr`     | Normal        | macOS           | Browse current git repo in browser                                       |
+| `<leader>gb`      | Visual        | macOS           | Blame current line                                                       |
 | `<F9>`            | Normal        | Linux/macOS/Win | Compile&run current source file (for C++, LaTeX, Lua, Python)            |
 | `<F11>`           | Normal        | Linux/macOS/Win | Toggle spell checking                                                    |
 | `<F12>`           | Normal        | Linux/macOS/Win | Toggle paste mode                                                        |
@@ -191,11 +200,12 @@ Some of the shortcuts I use frequently are listed here. In the following shortcu
 
 In addition to commands provided by various plugins, I have also created some custom commands for personal use.
 
-| command    | description                                                             | example                        |
-|------------|-------------------------------------------------------------------------|--------------------------------|
-| `Redir`    | capture command output to a tabpage for easier inspection.              | `Redir hi`                     |
-| `Edit`     | edit multiple files at the same time, supports globing                  | `Edit *.vim`                   |
-| `Datetime` | print current date and time or convert Unix time stamp to date and time | `Datetime 12345` or `Datetime` |
+| command      | description                                                             | example                        |
+|--------------|-------------------------------------------------------------------------|--------------------------------|
+| `Redir`      | capture command output to a tabpage for easier inspection.              | `Redir hi`                     |
+| `Edit`       | edit multiple files at the same time, supports globing                  | `Edit *.vim`                   |
+| `Datetime`   | print current date and time or convert Unix time stamp to date and time | `Datetime 12345` or `Datetime` |
+| `JSONFormat` | format a JSON file                                                      | `JSONFormat`                   |
 
 # Contributing
 
